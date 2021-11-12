@@ -45,7 +45,8 @@ RUN     mkdir /mgltools && \
         ls /mgltools
 
 
-# WORKDIR /mgltools
-# RUN     install.sh
+WORKDIR /mgltools
+RUN     ls -lh
+RUN     ./install.sh
 
-# ENTRYPOINT ["/mgltools/bin/adt"]
+ENTRYPOINT ["/mgltools/bin/adt"]
