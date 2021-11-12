@@ -6,7 +6,7 @@ LABEL VERSION "1.5.7"
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LC_ALL=C
-ENV PATH="/mgltools/bin:${PATH}"
+ENV PATH="/mgltools/bin:${PATH}:/mgltools/MGLToolsPckgs/binaries"
 ENV LIBGL_ALWAYS_INDIRECT=1
 
 RUN     apt-get clean && \
@@ -58,8 +58,6 @@ RUN     /usr/bin/python3 \
             pip setuptools wheel && \
         /usr/bin/python3 \
             -m pip install \
-            biopython==1.79 \
-            intermine \
-            pandas
+            biopython==1.79
 
 ENTRYPOINT ["/usr/bin/python3"]
