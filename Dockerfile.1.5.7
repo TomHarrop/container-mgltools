@@ -41,12 +41,9 @@ RUN     mkdir /mgltools && \
         tar -zxf /mgl.tar.gz \
             -C /mgltools \
             --strip-components 1 && \
-        rm /mgl.tar.gz && \
-        ls /mgltools
-
+        rm /mgl.tar.gz
 
 WORKDIR /mgltools
-RUN     ls -lh
 RUN     ./install.sh
 
 ENTRYPOINT ["/mgltools/bin/adt"]
