@@ -34,8 +34,8 @@ RUN     apt-get update && apt-get install -y  --no-install-recommends \
             mesa-utils \
             wget
 
-WORKDIR /mgltools
-RUN     wget -O "/mgl.tar.gz" \
+RUN     mkdir /mgltools && \
+        wget -O "/mgl.tar.gz" \
             --no-check-certificate \
             https://ccsb.scripps.edu/download/532/ && \
         tar -zxf /mgl.tar.gz \
@@ -43,6 +43,8 @@ RUN     wget -O "/mgl.tar.gz" \
             --strip-components 1 && \
         rm /mgl.tar.gz
 
+
+WORKDIR /mgltools
 RUN     install.sh
 
 ENTRYPOINT ["/mgltools/bin/adt"]
